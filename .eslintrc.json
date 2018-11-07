@@ -1,0 +1,15 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "extends": "htmlacademy/es6",
+  "rules": {
+    "no-alert": 1,
+    "no-nested-ternary": 1,
+    "no-shadow": 1
+  }
+}

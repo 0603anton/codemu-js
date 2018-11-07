@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+
+
+<body>
+  <hr>
+  <div id="area-1">
+    <h4 class="timer">0</h4>
+    <button class="timer-start">Запустить таймер</button>
+  </div>
+  <script>
+    (function () {
+      const timer = document.querySelector('#area-1 .timer');
+      const btnStart = document.querySelector('#area-1 .timer-start');
+
+      const startTimer = function (ev) {
+        this.disabled = true;
+        setInterval(() => {
+          timer.innerHTML = Number(timer.innerHTML) + 1;
+        }, 1000);
+      }
+      btnStart.addEventListener('click', startTimer);
+    })()
+
+  </script>
+  <hr>
+
+  <hr>
+  <div id="area-2">
+    <h4 class="timer">0</h4>
+    <button class="timer-start">Запустить таймер</button>
+    <button class="timer-stop" disabled>Остановить таймер</button>
+  </div>
+  <script>
+    (function () {
+      const timer = document.querySelector('#area-2 .timer');
+      const btnStart = document.querySelector('#area-2 .timer-start');
+      const btnStop = document.querySelector('#area-2 .timer-stop');
+
+      let idInterval;
+      const startTimer = function (ev) {
+        this.disabled = true;
+        btnStop.disabled = false;
+        idInterval = setInterval(() => {
+          timer.innerHTML = Number(timer.innerHTML) + 1;
+        }, 1000);
+      }
+      const stopTimer = function (ev) {
+        this.disabled = true;
+        btnStart.disabled = false;
+        clearInterval(idInterval);
+      }
+      btnStart.addEventListener('click', startTimer);
+      btnStop.addEventListener('click', stopTimer);
+    })()
+
+  </script>
+  <hr>
+
+  <hr>
+  <div id="area-3">
+    <p>Создайте тикающие часики:</p>
+    <b class="clocks"></b>
+  </div>
+  <script>
+    (function () {
+      const clocks = document.querySelector('#area-3 .clocks');
+      const showTime = () => {
+        const now = new Date();
+        const addZero = item => item <= 9 ? '0' + item : item;
+        const [hours, minutes, seconds] = [now.getHours(), now.getMinutes(), now.getSeconds()].map(addZero);
+        clocks.innerHTML = `${hours}:${minutes}:${seconds}`;
+      }
+      document.addEventListener('DOMContentLoaded', showTime);
+      setInterval(showTime, 1000);
+    })()
+
+  </script>
+  <hr>
+
+  <hr>
+  <div id="area-4">
+    <h4 class="timer">3</h4>
+    <p class="alert"></p>
+    <button class="timer-start">Запустить таймер</button>
+  </div>
+  <script>
+    (function () {
+      const timer = document.querySelector('#area-4 .timer');
+      const btnStart = document.querySelector('#area-4 .timer-start');
+      const alert = document.querySelector('#area-4 .alert');
+
+      const startTimer = function (ev) {
+        this.disabled = true;
+        setTimeout(() => {
+          const time = Number(timer.innerHTML);
+          if (time > 0) {
+            timer.innerHTML = time - 1;
+            startTimer();
+          } else {
+            alert.innerHTML = 'Опаньки!!!'
+          }
+        }, 1000);
+      }
+      btnStart.addEventListener('click', startTimer);
+    })()
+
+  </script>
+  <hr>
+
+  <hr>
+  <div id="area-5">
+    <img src="http://code.mu/exercises/javascript/dom/rabota-s-tajmerami-v-javascript/smiles/2.png" alt="">
+  </div>
+  <script>
+    (function () {
+      const img = document.querySelector('#area-5 img');
+      const sources = ['http://code.mu/exercises/javascript/dom/rabota-s-tajmerami-v-javascript/smiles/2.png',
+        'http://code.mu/exercises/javascript/dom/rabota-s-tajmerami-v-javascript/smiles/1.png',
+        'http://code.mu/exercises/javascript/dom/rabota-s-tajmerami-v-javascript/smiles/3.png'
+      ];
+      const showImage = src => img.src = src;
+      let index = 1;
+      setInterval(() => {
+        showImage(sources[index]);
+        index = (index + 1) % sources.length;
+      }, 2000)
+    })()
+
+  </script>
+  <hr>
+
+  <hr>
+  <div id="area-6">
+    <img src="http://code.mu/exercises/javascript/dom/rabota-s-tajmerami-v-javascript/smiles/2.png" alt="">
+    <img src="http://code.mu/exercises/javascript/dom/rabota-s-tajmerami-v-javascript/smiles/1.png" alt="">
+    <img src="http://code.mu/exercises/javascript/dom/rabota-s-tajmerami-v-javascript/smiles/3.png" alt="">
+  </div>
+  <script>
+    (function () {
+      const images = Array.from(document.querySelectorAll('#area-6 img'));
+      const sources = ['http://code.mu/exercises/javascript/dom/rabota-s-tajmerami-v-javascript/smiles/2.png',
+        'http://code.mu/exercises/javascript/dom/rabota-s-tajmerami-v-javascript/smiles/1.png',
+        'http://code.mu/exercises/javascript/dom/rabota-s-tajmerami-v-javascript/smiles/3.png'
+      ];
+
+      setInterval(() => {
+        sources.unshift(sources.pop());
+        images.forEach((item, i) => {
+          item.src = sources[i];
+        })
+      }, 3000)
+    })()
+
+  </script>
+  <hr>
+
+  <hr>
+  <div id="area-7">
+    <img src="http://code.mu/exercises/javascript/dom/rabota-s-tajmerami-v-javascript/smiles/2.png" alt="">
+    <img src="http://code.mu/exercises/javascript/dom/rabota-s-tajmerami-v-javascript/smiles/1.png" alt="">
+    <img src="http://code.mu/exercises/javascript/dom/rabota-s-tajmerami-v-javascript/smiles/3.png" alt="">
+    <img src="http://code.mu/exercises/javascript/dom/rabota-s-tajmerami-v-javascript/smiles/4.png" alt="">
+    <br>
+    <button class="start">Запустить карусель</button>
+    <button class="stop" disabled>Остановить карусель</button>
+  </div>
+  <script>
+    (function () {
+      const images = Array.from(document.querySelectorAll('#area-7 img'));
+      const btnStart = document.querySelector('#area-7 .start');
+      const btnStop = document.querySelector('#area-7 .stop');
+      const sources = ['http://code.mu/exercises/javascript/dom/rabota-s-tajmerami-v-javascript/smiles/2.png',
+        'http://code.mu/exercises/javascript/dom/rabota-s-tajmerami-v-javascript/smiles/1.png',
+        'http://code.mu/exercises/javascript/dom/rabota-s-tajmerami-v-javascript/smiles/3.png',
+        'http://code.mu/exercises/javascript/dom/rabota-s-tajmerami-v-javascript/smiles/4.png'
+      ];
+      let intervalId;
+
+      const changeImages = () => {
+        sources.unshift(sources.pop());
+        images.forEach((item, i) => {
+          item.src = sources[i];
+        })
+      }
+
+      const startCarousel = function (ev) {
+        ev.target.disabled = true;
+        btnStop.disabled = false;
+        changeImages();
+        intervalId = setInterval(changeImages, 3000);
+        btnStop.addEventListener('click', stopCarousel);
+      };
+
+      const stopCarousel = function (ev) {
+        ev.target.disabled = true;
+        btnStart.disabled = false;
+        clearInterval(intervalId);
+        btnStart.addEventListener('click', startCarousel);
+        btnStop.removeEventListener('click', stopCarousel);
+      };
+
+      btnStart.addEventListener('click', startCarousel);
+
+    })()
+
+  </script>
+  <hr>
+
+  <hr>
+  <div id="area-8">
+    <p> До полуночи осталось: </p>
+    <table class="table table-bordered">
+      <tr>
+        <th>Часы</th>
+        <th>Минуты</th>
+        <th>Секунды</th>
+      </tr>
+      <tr>
+        <td class="hours">0</td>
+        <td class="minutes">0</td>
+        <td class="seconds">0</td>
+      </tr>
+    </table>
+    <style>
+      #area-8 table {
+        margin: 0 auto;
+        text-align: center;
+        border: 1px solid grey;
+      }
+
+      #area-8 td,
+      #area-8 th {
+        height: 30px;
+        width: 100px;
+      }
+
+    </style>
+    <script>
+      (function () {
+        const hoursTd = document.querySelector('#area-8 .hours');
+        const minutesTd = document.querySelector('#area-8 .minutes');
+        const secondsTd = document.querySelector('#area-8 .seconds');
+
+        const normalizeDigits = (digits) => {
+          return digits < 10 ? '0' + digits : digits;
+        }
+
+        const calcRemainder = () => {
+          const now = new Date();
+          const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+          const diffSec = Math.floor((midnight - now) / 1000);
+          const hours = normalizeDigits(Math.floor(diffSec / (60 * 60)));
+          const minutes = normalizeDigits(Math.floor((diffSec - hours * 60 * 60) / 60));
+          const seconds = normalizeDigits(diffSec % 60);
+          hoursTd.innerHTML = hours;
+          minutesTd.innerHTML = minutes;
+          secondsTd.innerHTML = seconds;
+        }
+
+        calcRemainder();
+        setInterval(calcRemainder, 1000);
+      })();
+
+    </script>
+  </div>
+  <hr>
+  <script src="scripts.js"></script>
+</body>
+
+</html>

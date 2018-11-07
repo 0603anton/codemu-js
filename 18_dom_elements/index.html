@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <hr>
+  <div id="area-1">
+    <p>При нажатии на кнопку текст в абзаце поменяется.</p>
+    <button>Нажми</button>
+  </div>
+  <script>
+    (function () {
+      const paragraph = document.querySelector('#area-1 p');
+      const btn = document.querySelector('#area-1 button');
+      btn.addEventListener('click', ev => {
+        paragraph.innerHTML = 'Ку-ку! <b>А я жирный!</b>';
+      })
+
+    })()
+  </script>
+  <hr>
+
+  <hr>
+  <div id="area-2">
+    <p>При нажатии на кнопку тег поменяется.</p>
+    <button>Нажми</button>
+  </div>
+  <script>
+    (function () {
+        const textBlock = document.querySelector('#area-2 p');
+        const btn = document.querySelector('#area-2 button');
+        btn.addEventListener('click', ev => {
+          textBlock.outerHTML = '<h3>Абзац превратился в h3!</h3>';
+        })
+
+      })()
+  </script>
+  <hr>
+
+  <hr>
+  <div id="area-3">
+    <p>При нажатии на кнопку тег поменяется, а текст - нет.</p>
+    <button>Нажми</button>
+  </div>
+  <script>
+    (function () {
+        const textBlock = document.querySelector('#area-3 p');
+        const btn = document.querySelector('#area-3 button');
+        btn.addEventListener('click', ev => {
+          textBlock.outerHTML = `<h3>${textBlock.innerHTML}</h3>`;
+        })
+
+      })()
+  </script>
+  <hr>
+
+  <hr>
+  <div id="area-4">
+    <input type="text" class="first"> +
+    <input type="text" class="second"> =
+    <span class="result"></span>
+    <div>
+      <button>Нажми, чтобы сложить</button>
+    </div>
+  </div>
+  <script>
+    (function () {
+        const input1 = document.querySelector('#area-4 .first');
+        const input2 = document.querySelector('#area-4 .second');
+        const sumBlock = document.querySelector('#area-4 .result');
+        const btn = document.querySelector('#area-4 button');
+        btn.addEventListener('click', ev => {
+          const [first, second] = [input1.value, input2.value];
+          const sum = +first + +second;
+          sumBlock.innerHTML = isNaN(sum) ? 'Невозможно сложить' : sum;
+        })
+
+      })()
+  </script>
+  <hr>
+
+  <hr>
+  <div id="area-5">
+    <p>При нажатии на кнопку текст в каждом абзаце поменяется.</p>
+    <p>При нажатии на кнопку текст в каждом абзаце поменяется.</p>
+    <p>При нажатии на кнопку текст в каждом абзаце поменяется.</p>
+    <h3>А я h3 и не поменяюсь!</h3>
+    <button>Нажми, чтобы поменять текст</button>
+  </div>
+  <script>
+    (function () {
+        const btn = document.querySelector('#area-5 button');
+        btn.addEventListener('click', ev => {
+          const area5 = document.querySelector('#area-5');
+          const paragraphs = Array.from(area5.getElementsByTagName('p'));
+          paragraphs.forEach((item) => {
+            item.innerHTML = 'Ку-ку!';
+          })
+
+        })
+
+      })()
+  </script>
+  <hr>
+
+  <hr>
+  <div id="area-6">
+    <h3 class="www">Заголовок с классом www</h3>
+    <p class="www">Абзац с классом www.</p>
+    <p class="www">Абзац с классом www.</p>
+    <p>Просто абзац, не поменяется</p>
+    <button>Нажми, чтобы поменять текст в блоках с классом 'www'</button>
+  </div>
+  <script>
+    (function () {
+        const btn = document.querySelector('#area-6 button');
+        btn.addEventListener('click', ev => {
+          const area6 = document.querySelector('#area-6');
+          const wwws = Array.from(area6.getElementsByClassName('www'));
+          wwws.forEach((item) => {
+            item.innerHTML = 'Ку-ку!';
+          })
+
+        })
+
+      })()
+  </script>
+  <hr>
+
+  <hr>
+  <div id="area-7">
+    <h2 class="www">Заголовок с классом www, не поменяется.</h2>
+    <p class="www">Абзац с классом www.</p>
+    <p class="www">Абзац с классом www.</p>
+    <p class="www">Абзац с классом www.</p>
+    <p>Просто абзац, не поменяется.</p>
+    <button>Показать порядковый номер блоков с классом 'www'</button>
+  </div>
+  <script>
+    (function () {
+        const btn = document.querySelector('#area-7 button');
+        btn.addEventListener('click', ev => {
+          const area7 = document.querySelector('#area-7');
+          const wwws = Array.from(area7.querySelectorAll('.www'));
+          wwws.forEach((item, index) => {
+            item.innerHTML = index + 1;
+          })
+        })
+      })()
+  </script>
+  <hr>
+
+  <hr>
+  <div id="area-8">
+    <p class="area-8-red">Абзац с class="area-8-red". Класс задает красный цвет.</p>
+    <button class="btn-show">Нажми - и я выведу класс абзаца.</button>
+    <button class="btn-remove">Нажми - и я удалю атрибут class для абзаца.</button>
+    <button class="btn-change">Нажми - и я изменю атрибут class для абзаца на "area-8-green".</button>
+  </div>
+  <style>
+    .area-8-red {
+      color: red;
+    }
+
+    .area-8-green {
+      color: green;
+    }
+  </style>
+  <script>
+    (function () {
+        const btnToShowClass = document.querySelector('#area-8 .btn-show');
+        const btnToRemoveClass = document.querySelector('#area-8 .btn-remove');
+        const btnToChangeClass = document.querySelector('#area-8 .btn-change');
+        const text = document.querySelector('#area-8 p');
+
+        btnToShowClass.addEventListener('click', ev => {
+          alert(text.getAttribute('class'));
+        });
+
+        btnToRemoveClass.addEventListener('click', ev => {
+          text.removeAttribute('class');
+        });
+
+        btnToChangeClass.addEventListener('click', ev => {
+          text.setAttribute('class', 'area-8-green');
+        });
+      })()
+  </script>
+  <hr>
+
+  <hr>
+  <div id="area-9">
+    <label for=""> Введи текст - он дублирется сбоку:
+      <input type="text" placeholder="Введи в меня текст">
+    </label>
+    <span class="output"></span>
+  </div>
+  <script>
+    (function () {
+        const input = document.querySelector('#area-9 input');
+        const output = document.querySelector('#area-9 .output');
+        input.addEventListener('input', ev => {
+          output.textContent = ev.target.value;
+        })
+
+      })()
+  </script>
+  <hr>
+
+  <hr>
+  <div id="area-10">
+    <a href="http://google.ru">ссылка 1</a><br>
+    <a href="http://tut.by">ссылка 2</a><br>
+    <a href="http://yandex.ru">ссылка 3</a><br>
+    <button>Показать содержимое атрибута href</button>
+  </div>
+  <script>
+    (function () {
+        const btn = document.querySelector('#area-10 button');
+        const links = Array.from(document.querySelectorAll('#area-10 a'));
+        btn.addEventListener('click', ev => {
+          links.forEach((link) => {
+            const [href, text] = [link.getAttribute('href'), link.textContent];
+            link.textContent = `${text} - ${href}`;
+          })
+        })
+
+      })()
+  </script>
+  <hr>
+
+  <hr>
+  <div id="area-11">
+    <p>При нажатии на кнопку текст в абзаце поменяется.</p>
+    <input type="button" value="Поменять текст абзаца">
+  </div>
+  <script>
+    (function () {
+        const btn = document.querySelector('#area-11 input');
+        const paragraph = document.querySelector('#area-11 p');
+        btn.addEventListener('click', ev => {
+          ev.target.disabled = true;
+          ev.target.value = 'Меня больше не нажать';
+          paragraph.textContent = 'Опаньки';
+        })
+
+      })()
+  </script>
+  <hr>
+
+  <hr>
+  <div id="area-12">
+    <p>Абзац с текстом</p>
+    <p>Абзац с текстом</p>
+    <p>Абзац с текстом</p>
+    <input type="button" value="Добавить абзацам порядковый номер!">
+  </div>
+  <script>
+    (function () {
+      const btn = document.querySelector('#area-12 input');
+      const paragraphs = Array.from(document.querySelectorAll('#area-12 p'));
+      btn.addEventListener('click', ev => {
+        paragraphs.forEach((item, index) => {
+          item.textContent = `${index + 1}. ${item.textContent}`;
+        })
+      })
+
+    })()
+
+  </script>
+  <hr>
+  <script src="scripts.js"></script>
+</body>
+
+</html>

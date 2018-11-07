@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <hr>
+  <div id="area-1">
+    <p>Нажми на картинку</p>
+    <img src="http://code.mu/exercises/javascript/dom/rabota-s-tajmerami-v-javascript/smiles/2.png"
+      alt="лицо" onclick="handleClick(this, event)">
+    <img src="http://code.mu/exercises/javascript/dom/rabota-s-tajmerami-v-javascript/smiles/1.png"
+      alt="лицо" onclick="handleClick(this, event)">
+  </div>
+  <hr>
+
+  <hr>
+  <div id="area-2">
+    <p>Наведи на ссылку</p>
+    <a href="google.com">Гугол</a><br>
+    <a href="ya.ru">Яндекс</a>
+  </div>
+  <hr>
+
+  <hr>
+  <div id="area-3">
+    <input type="text"><input type="text">
+    <p class="test">Здесь выведется значение при изменнении и при потере фокуса на инпутах</p>
+  </div>
+  <hr>
+
+  <hr>
+  <div id="area-4">
+    <p>По клику на инпут выведется alert со значением один раз</p>
+    <input type="text" value="Test 1">
+    <input type="text" value="Test 2">
+  </div>
+  <hr>
+
+  <hr>
+  <div id="area-5">
+    <p>Нажми на абзацы с числами чтобы возвести в корень их значения</p>
+    <p class="multy">2</p>
+    <p class="multy">3</p>
+  </div>
+  <style>
+    .multy {
+      outline: 1px solid blue;
+    }
+  </style>
+  <hr>
+
+  <hr>
+  <div id="area-6">
+    <input type="text" data-length="3" placeholder="Введи 3 символа">
+    <input type="text" data-length="4" placeholder="Введи 4 символа">
+  </div>
+  <hr>
+  <style>
+    .invalid {
+      border: 1px solid red;
+    }
+
+    .valid {
+      border: 1px solid lightgreen;
+    }
+  </style>
+
+  <hr>
+  <div id="area-7">
+    <div class="color-block">Div-1 - нажми на меня, чтобы сменить цвет</div>
+    <div class="color-block">Div-2 - нажми на меня, чтобы сменить цвет</div>
+  </div>
+  <style>
+    .color-block {
+      outline: 1px solid blue;
+      margin-bottom: 10px;
+    }
+
+    .redBg {
+      background-color: red;
+    }
+
+    .greenBg {
+      background-color: green;
+    }
+  </style>
+  <hr>
+
+
+  <script src="scripts.js"></script>
+</body>
+
+</html>

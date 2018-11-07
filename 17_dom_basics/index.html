@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="button1" onclick="console.log(this)">Onclick</button>
+  <button id="button2" onmouseover="console.log(this)">Onmouseover</button>
+  <button id="button3" ondblclick="console.log(this)">Onmousedoubleclick</button>
+  <div id="area4" style=" width:80px;
+                          height:60px;
+                          border: 1px solid red;"
+    onmouseout="console.log(this)">Наведи на меня и обратно</div>
+
+  <hr>
+  <div id="area5">
+    <input type="text" value="Опаньки">
+    <button>Узнать значение инпута</button>
+  </div>
+  <script>
+    (function () {
+      const input = document.querySelector('#area5 input');
+      const button = document.querySelector('#area5 button');
+      button.onclick = () => {
+        console.log(input.value);
+      }
+    })()
+  </script>
+  <hr>
+
+  <hr>
+  <div id="area6">
+    <input type="text" value="Опаньки">
+    <button>Изменить текст инпута</button>
+  </div>
+  <script>
+    (function () {
+        const input = document.querySelector('#area6 input');
+        const button = document.querySelector('#area6 button');
+        button.onclick = () => {
+          input.value = 'Текст поменялся';
+        }
+      })()
+  </script>
+  <hr>
+
+  <hr>
+  <div id="area7">
+    <img src="http://theory.phphtml.net/exercises/javascript/dom/osnovy-raboty-s-dom-v-javascript/2/3/1.jpg" width="100"
+      alt="assa">
+    <button>Изменить картинку</button>
+  </div>
+  <script>
+    (function () {
+        const img = document.querySelector('#area7 img');
+        const button = document.querySelector('#area7 button');
+        button.onclick = () => {
+          img.src = 'http://theory.phphtml.net/exercises/javascript/dom/osnovy-raboty-s-dom-v-javascript/2/3/2.jpg';
+        }
+      })()
+  </script>
+  <hr>
+
+  <hr>
+  <div id="area8">
+    <input type="text" value="Нажми на инпут">
+  </div>
+  <script>
+    (function () {
+        const input = document.querySelector('#area8 input');
+        input.onclick = function () {
+          this.value = 'Текст поменялся';
+        }
+      })()
+  </script>
+  <hr>
+
+  <hr>
+  <div id="area9">
+    <input type="text" value="Нажми на инпут">
+  </div>
+  <script>
+    (function () {
+        const input = document.querySelector('#area9 input');
+        input.onclick = function () {
+          this.value = 'Текст поменялся, убери фокус';
+        }
+        input.onblur = function () {
+          this.value = 'Текст поменялся еще раз';
+        }
+      })()
+  </script>
+  <hr>
+
+  <hr>
+  <div id="area10">
+    <p>Это input type="submit"</p>
+    <input type="submit" value="Нажми на инпут">
+  </div>
+  <script>
+    (function () {
+        const input = document.querySelector('#area10 input');
+        input.onclick = function () {
+          this.value = 'Текст поменялся';
+        }
+      })()
+  </script>
+  <hr>
+
+  <hr>
+  <div id="area11">
+    <p>Наведи мышь на картинку</p>
+    <img src="http://theory.phphtml.net/exercises/javascript/dom/osnovy-raboty-s-dom-v-javascript/2/3/1.jpg" width="100"
+      alt="assa">
+  </div>
+  <script>
+    (function () {
+        const img = document.querySelector('#area11 img');
+        img.onmouseover = function () {
+          this.src = 'http://theory.phphtml.net/exercises/javascript/dom/osnovy-raboty-s-dom-v-javascript/2/3/2.jpg';
+        }
+        img.onmouseout = function () {
+          this.src = 'http://theory.phphtml.net/exercises/javascript/dom/osnovy-raboty-s-dom-v-javascript/2/3/1.jpg';
+        }
+      })()
+  </script>
+  <hr>
+
+  <hr>
+  <div id="area12">
+    <input type="text" value="Опаньки">
+    <button>Изменить свойства инпута</button>
+  </div>
+  <script>
+    (function () {
+      const input = document.querySelector('#area12 input');
+      const button = document.querySelector('#area12 button');
+      button.onclick = () => {
+        input.style.width = '400px';
+        input.style.color = 'red';
+      }
+    })()
+
+  </script>
+  <hr>
+  <script src="scripts.js"></script>
+</body>
+
+</html>

@@ -119,25 +119,94 @@ const renderLine = function () {
 })();
 
 
-// Удаление и клонирование
-// Для решения задач данного блока вам понадобятся следующие свойства: removeChild.
 // Дан элемент #parent, внутри него дан элемент #child.Дана кнопка.По нажатию на эту кнопку удалите элемент #child.
+(function () {
+  const parent = document.querySelector(`#area-7 .parent`);
+  const child = document.querySelector(`#area-7 .child`);
+  const btn = document.querySelector(`#area-7 button`);
+  btn.addEventListener(`click`, () => {
+    parent.removeChild(child);
+  }, {once: true}); // событие срабатывает только раз
+})();
 
 // Дан ol.По нажатию на кнопку получите его последнего потомка и удалите его.
+(function () {
+  const parent = document.querySelector(`#area-8 .list`);
+  const btn = document.querySelector(`#area-8 button`);
+  btn.addEventListener(`click`, () => {
+    parent.removeChild(parent.lastElementChild);
+  }, {once: true});
+})();
 
 // Дан элемент.Сделайте так, чтобы по нажатию по нему этот элемент удалялся.
+(function () {
+  const btn = document.querySelector(`#area-9 button`);
+  btn.addEventListener(`click`, function ({target}) {
+    target.remove();
+  }, {once: true});
+})();
 
 // Дан ol, а внутри него li.Сделайте так, чтобы по нажатию на любую li эта li удалялась.
+(function () {
+  const parent = document.querySelector(`#area-10 .list`);
+  parent.addEventListener(`click`, ({target}) => {
+    if (target.closest(`li`)) {
+      target.remove();
+    }
+  });
+})();
 
-//   Клонирование
-// Для решения задач данного блока вам понадобятся следующие свойства: cloneNode.
 // Дан инпут.Дана кнопка.По нажатию на кнопку клонируйте этот инпут.
+(function () {
+  const btn = document.querySelector(`#area-11 button`);
+  const input = document.querySelector(`#area-11 input`);
+  btn.addEventListener(`click`, function () {
+    input.parentNode.insertBefore(input.cloneNode(), btn);
+  });
+})();
 
-//   Практика
-// Дан массив.Создайте ul через createElement, затем вставьте каждый элемент этого массива в отдельную li внутри этой ul, затем вставьте эту ul в конец body.
-
-// Дан инпут.Рядом с ним находится кнопочка "+".По нажатию на эту кнопку под нашим инпутом должен появится еще один пустой инпут.
+// Дан массив.Создайте ul через createElement, затем вставьте каждый элемент этого массива в отдельную li внутри этой ul, затем вставьте эту ul в area-12.
+(function () {
+  const arr = [`One`, `Two`, `Three`];
+  const area = document.querySelector(`#area-12`);
+  const ul = document.createElement(`ul`);
+  arr.forEach((item) => {
+    const li = document.createElement(`li`);
+    li.innerHTML = item;
+    ul.appendChild(li);
+  });
+  area.appendChild(ul);
+})();
 
 // Дан инпут.В него вводится число.По потери фокуса сделайте так, чтобы каждая цифра вставилась в новый инпут.Инпутов для цифр изначально не существует, они должны создаться в процессе работы скрипта.
+(function () {
+  const input = document.querySelector(`#area-13 .add`);
+  const area = document.querySelector(`#area-13`);
+  input.addEventListener(`blur`, createInputs);
+  function createInputs({target}) {
+    if (target.value.length === 0) {
+      return;
+    }
+    cleanAddedInputs();
+    const arr = target.value.split(``);
+    arr.forEach((item) => {
+      const newInput = document.createElement(`input`);
+      newInput.value = item;
+      area.appendChild(newInput);
+    });
+  }
+  function cleanAddedInputs() {
+    const addedInputs = Array.from(document.querySelectorAll(`#area-13 input:not(.add)`));
+    addedInputs.forEach((item) => {
+      area.removeChild(item);
+    });
+  }
+})();
 
 // Дана кнопка.Сделайте так, чтобы по нажатию на эту кнопку, скрывался родитель этой кнопки.
+(function () {
+  const btn = document.querySelector(`#area-14 button`);
+  btn.addEventListener(`click`, function ({target}) {
+    target.parentNode.remove();
+  }, {once: true});
+})();

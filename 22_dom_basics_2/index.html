@@ -27,67 +27,143 @@
       color: rgb(248, 27, 7);
       font-weight: 700;
     }
+
   </style>
-<hr>
+  <hr>
 
-<hr>
-<div id="area-2">
-  <div class="elem">Element</div>
-</div>
-<hr>
-
-<hr>
-<div id="area-3">
-  <ol class="list">
-    <li>Elem1</li>
-    <li>Elem2</li>
-  </ol>
-</div>
-<hr>
-
-<hr>
-<div id="area-4">
-  <ul class="list">
-    <li>Elem1</li>
-    <li>Elem2</li>
-  </ul>
-</div>
-<hr>
-
-<hr>
-<div id="area-5">
-  <div class="elem">
-    Элемент
+  <hr>
+  <div id="area-2">
+    <div class="elem">Element</div>
   </div>
-  <div class="buttons">
-    <button class="add" data-action="beforebegin">Добавить перед</button>
-    <button class="add" data-action="afterbegin">Добавить в начало</button>
-    <button class="add" data-action="beforeend">Добавить в конец</button>
-    <button class="add" data-action="afterend">Добавить после</button>
+  <hr>
+
+  <hr>
+  <div id="area-3">
+    <ol class="list">
+      <li>Elem1</li>
+      <li>Elem2</li>
+    </ol>
   </div>
-</div>
-<style>
-  #area-5 .elem {
-    width: 200px;
-    height: 50px;
-    border: 1px solid blueviolet;
-  }
-</style>
-<hr>
+  <hr>
 
-<hr>
-<div id="area-6" style="border: 1px solid brown; padding: 10px">
-  <p>Сосед сверху</p>
-  <ul class="list" style="border: 1px solid blue;">
-    <li>Elem1</li>
-    <li>Elem2</li>
-    <li>Elem3</li>
-  </ul>
-  <p>Cосед снизу</p>
-  <p>Cосед снизу</p>
-</div>
-<hr>
+  <hr>
+  <div id="area-4">
+    <ul class="list">
+      <li>Elem1</li>
+      <li>Elem2</li>
+    </ul>
+  </div>
+  <hr>
 
+  <hr>
+  <div id="area-5">
+    <div class="elem">
+      Элемент
+    </div>
+    <div class="buttons">
+      <button class="add" data-action="beforebegin">Добавить перед</button>
+      <button class="add" data-action="afterbegin">Добавить в начало</button>
+      <button class="add" data-action="beforeend">Добавить в конец</button>
+      <button class="add" data-action="afterend">Добавить после</button>
+    </div>
+  </div>
+  <style>
+    #area-5 .elem {
+      width: 200px;
+      height: 50px;
+      border: 1px solid blueviolet;
+    }
+
+  </style>
+  <hr>
+
+  <hr>
+  <div id="area-6" style="border: 1px solid brown; padding: 10px;">
+    <p>Сосед сверху</p>
+    <ul class="list" style="border: 1px solid blue;">
+      <li>Elem1</li>
+      <li>Elem2</li>
+      <li>Elem3</li>
+    </ul>
+    <p>Cосед снизу</p>
+    <p>Cосед снизу</p>
+  </div>
+  <hr>
+
+  <hr>
+  <div id="area-7">
+    <div class="parent">
+      Родитель
+      <div class="child">Ребенок</div>
+    </div>
+    <button>Удалить ребенка</button>
+  </div>
+  <style>
+    #area-7 .parent {
+      width: 300px;
+      height: 50px;
+      border: 1px solid #000000;
+    }
+
+    #area-7 .child {
+      background-color: yellow;
+    }
+
+  </style>
+  <hr>
+
+  <hr>
+  <div id="area-8" style="border: 1px solid brown; padding: 10px;">
+    <ol class="list" style="border: 1px solid blue;">
+      <li>Elem1</li>
+      <li>Elem2</li>
+      <li>Последний</li>
+    </ol>
+    <button>Удалить последний</button>
+  </div>
+  <hr>
+
+  <hr>
+  <div id="area-9" style="border: 1px solid brown; padding: 10px;">
+    <button>Удали меня нажав</button>
+  </div>
+  <hr>
+
+  <hr>
+  <div id="area-10" style="border: 1px solid brown; padding: 10px;">
+    нажми на элемент списка, чтобы удалить его
+    <ol class="list" style="border: 1px solid blue;">
+      <li>Elem1</li>
+      <li>Elem2</li>
+      <li>Последний</li>
+    </ol>
+  </div>
+  <hr>
+
+  <hr>
+  <div id="area-11">
+    <input type="text" placeholder="Опаньки"><br>
+    <button>Клонировать инпут</button>
+  </div>
+  <hr>
+
+  <hr>
+  <div id="area-12"></div>
+  <hr>
+
+  <hr>
+  <div id="area-13">
+    <label for="">Добавьте число, при потере фокуса случится волшебство</label>
+    <input type="number" class="add"><br>
+  </div>
+  <hr>
+
+  <hr>
+  <div id="area-14" style="border: 1px solid brown; padding: 10px;">
+    родитель
+    <button>Удали родителя</button>
+  </div>
+  <hr>
 
   <script src="scripts.js"></script>
 </body>

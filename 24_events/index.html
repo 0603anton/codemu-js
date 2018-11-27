@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+      .area {
+        width: 300px;
+        height: 200px;
+        border: 1px solid grey;
+        font-size: 14px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .square {
+        width: 40px;
+        height: 40px;
+        border: 1px solid red;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <p>Координаты мыши относительно окна</p>
+    <div class="area" id="area1"></div>
+
+    <hr>
+
+    <p>По клику задать координаты левому верхнему углу квадрата</p>
+    <div class="area" id="area2">
+      <div class="square"></div>
+    </div>
+
+    <hr>
+
+    <p>По клику задать координаты центру квадрата</p>
+    <div class="area" id="area3">
+      <div class="square"></div>
+    </div>
+
+    <hr>
+
+    <div id="area4">
+      <p>Вывести код нажатой клавиши, саму нажатую клавишу</p>
+      <input type="text"><br>
+      вывод:
+      <p class="output"></p>
+    </div>
+
+    <hr>
+
+    <div class="area" id="area5">
+      Нажми, зажав Alt или Ctrl
+    </div>
+
+    <hr>
+
+    <div id="area6">
+      <p>По нажатию Enter введенный текст попадает в абзац под инпутом, а содержимое инпута очищается.</p>
+      <input type="text"><br>
+      вывод:
+      <p class="output"></p>
+    </div>
+
+    <hr>
+
+    <div id="area7">
+      <p>По клику добавится знак восклицания</p>
+      <ul class="list">
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+      </ul>
+      <button class="btn add">Добавить элемент</button>
+    </div>
+
+    <hr>
+
+    <div id="area8">
+      <table class="table table-bordered">
+        <tr>
+          <td>Петя</td>
+          <td>Петин</td>
+        </tr>
+        <tr>
+          <td>Пупа</td>
+          <td>Пупенко</td>
+        </tr>
+      </table>
+      <form action="">
+        <input type="text" placeholder="Имя" class="firstName">
+        <input type="text" placeholder="Фамилия" class="lastName">
+        <button class="btn" type="submit">Добавить</button>
+      </form>
+
+    </div>
+
+    <script src="scripts.js"></script>
+  </body>
+
+</html>
